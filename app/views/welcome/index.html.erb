@@ -1,32 +1,16 @@
 <h1>Hello World!</h1>
-<div id="hello_world"></div>
-<button id="click_me_button">Click me</button>
 
-<ul id="hello_world_list">
-  <li>Hello World Start</li>
+
+
+
+<h2>Create a Quote</h2>
+<%= form_with model: @quote, url: '/create-quote', local: true do |f| %>
+  Quote: <br /> <%= f.text_area :content, required: true %> <br />
+  Author: <br /> <%= f.text_field :author_name, required: true %> 
+  <br /><br />
+  <%= f.submit "Create Quote" %>
+<% end %>
+
+<ul id="quotes_list">
+  <%= render partial: 'quote', collection: @quotes %> 
 </ul>
-
-<script type="text/javascript">
-
-  const clickMeButtonEl = document.getElementById("click_me_button");
-  const helloWorldListEl = document.getElementById("hello_world_list");
-
-  var addHelloWorldToList = function (event){
-    var itemEl = document.createElement("li");
-    itemEl.innerHTML = "Hello World!";
-    helloWorldListEl.appendChild(itemEl);
-  }
-
-  clickMeButtonEl.addEventListener("click", addHelloWorldToList);
-
-</script>
-
-<% quote = Quote.first %> 
-<p>"<%= quote.content %>" -<%= quote.author_name %></p>
-
-<div data-controller="hello">
-  <button data-action="hello#addHelloWorld">Click me</button>
-  <ul data-target="hello.list">
-    <li>Hello World Stimulus.js Start</li>
-  </ul>
-</div>

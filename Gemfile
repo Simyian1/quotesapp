@@ -67,3 +67,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "stimulus_reflex", "~> 3.4"
+gem "cable_ready", "~> 5.0"
+
+gem "redis", "~> 5.0"
