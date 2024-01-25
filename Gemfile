@@ -72,3 +72,5 @@ gem "stimulus_reflex", "~> 3.4"
 gem "cable_ready", "~> 5.0"
 
 gem "redis", "~> 5.0"
+
+gem "react-rails", "~> 3.2"
