@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/quotes', to: 'quotes#index', as: 'quotes'
+      resources :quotes, only: [:index, :destroy]
     end
   end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
